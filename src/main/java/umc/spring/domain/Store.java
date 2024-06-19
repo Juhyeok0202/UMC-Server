@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 import umc.spring.domain.common.BaseTimeEntity;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class Store extends BaseTimeEntity {
 
     private String address;
 
+    @ColumnDefault(value = "0.0")
     private Float score;
 
     @ManyToOne(fetch = LAZY)
