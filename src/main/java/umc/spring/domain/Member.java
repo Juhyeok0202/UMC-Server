@@ -42,6 +42,8 @@ public class Member extends BaseTimeEntity {
     @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
+    private LocalDate birth;
+
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
@@ -51,8 +53,8 @@ public class Member extends BaseTimeEntity {
 
     private LocalDate inactiveDate;
 
-    @Column(nullable = false, length = 50)
-    private String email;
+//    @Column(nullable = false, length = 50)
+    private String email; //TODO: 소셜로그인 시 사용
 
     private Integer point;
 

@@ -37,4 +37,15 @@ public class MemberMission extends BaseTimeEntity {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "mission_id")
     private Mission mission;
+
+    //====연관관계 편의 메서드====//
+    public void setMember(Member member) {
+        this.member = member;
+        member.getMemberMissionList().add(this);
+    }
+
+    public void setMission(Mission mission) {
+        this.mission = mission;
+        mission.getMemberMissionList().add(this);
+    }
 }
