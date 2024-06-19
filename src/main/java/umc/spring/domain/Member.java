@@ -1,6 +1,9 @@
 package umc.spring.domain;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseTimeEntity;
 import umc.spring.domain.enums.Gender;
 import umc.spring.domain.enums.MemberStatus;
@@ -17,6 +20,15 @@ import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
+
+
+/*
+이 두 개는 insert와 update 시
+null 인 경우는
+그냥 쿼리를 보내지 않도록 해줍니다.
+ */
+@DynamicUpdate
+@DynamicInsert
 
 @Entity
 @Getter
@@ -56,6 +68,7 @@ public class Member extends BaseTimeEntity {
 //    @Column(nullable = false, length = 50)
     private String email; //TODO: 소셜로그인 시 사용
 
+    @ColumnDefault("0")
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
@@ -69,6 +82,5 @@ public class Member extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
-
 
 }

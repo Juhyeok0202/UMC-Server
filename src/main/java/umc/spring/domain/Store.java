@@ -9,6 +9,9 @@ import umc.spring.domain.common.BaseTimeEntity;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
@@ -34,4 +37,7 @@ public class Store extends BaseTimeEntity {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "region_id")
     private Region region;
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    public List<Review> reviewList = new ArrayList<>();
 }

@@ -12,6 +12,7 @@ import umc.spring.web.dto.MissionResponseDTO;
 import umc.spring.web.dto.MissionResponseDTO.FindMissionsDto.MissionsMeta;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,11 +21,15 @@ import java.util.stream.Collectors;
 public class MemberQueryServiceImpl implements MemberQueryService {
 
     private final MemberRepository memberRepository;
-    private final String POST_FIX = "원 이상의 식사를 하세요!";
     @Override
     public MissionResponseDTO.FindMissionsDto findMissions(Long memberId, Integer status) {
 
         Member member = memberRepository.findById(memberId).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
         return MemberConverter.toFindMissionDto(member, status);
+    }
+
+    @Override
+    public Optional<Member> findMember(Long id) {
+        return memberRepository.findById(id);
     }
 }
