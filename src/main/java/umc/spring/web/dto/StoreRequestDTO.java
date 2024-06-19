@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public class StoreRequestDTO {
@@ -16,6 +18,22 @@ public class StoreRequestDTO {
     public static class RegisterStoreDto {
         private String name;
         private String address;
-        private String regionName;
     }
+
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Getter
+    public static class ReviewDto {
+        @NotBlank
+        String title;
+
+        @NotNull
+        Float score;
+
+        @NotBlank
+        String body;
+    }
+
+
 }

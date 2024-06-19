@@ -31,4 +31,12 @@ public class MemberController {
         return ApiResponse.onSuccess(missions);
     }
 
+    @PostMapping("/{memberId}/{missionId}") //가게의 미션을 도전 중인 미션에 추가 API
+    public ApiResponse<MemberResponseDTO.JoinResultDto> addMission(
+            @PathVariable(name = "memberId") Long memberId,
+            @PathVariable(name = "missionId") Long missionId) {
+        Member member = memberCommandService.addMission(memberId, missionId);
+        return ApiResponse.onSuccess(MemberConverter.toAddResultDTO(member));
+    }
+
 }
