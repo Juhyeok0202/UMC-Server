@@ -57,4 +57,9 @@ public class MemberMission extends BaseTimeEntity {
         this.mission = mission;
         mission.getMemberMissionList().add(this);
     }
+
+    //====보조 메서드====//
+    public void changeStatusToComplete() {
+        this.status = MissionStatus.COMPLETE;
+    }
 }

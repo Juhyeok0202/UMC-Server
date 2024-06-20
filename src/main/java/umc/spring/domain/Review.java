@@ -1,6 +1,7 @@
 package umc.spring.domain;
 
 import lombok.*;
+import umc.spring.domain.common.BaseTimeEntity;
 
 import javax.persistence.*;
 
@@ -13,7 +14,7 @@ import static lombok.AccessLevel.PROTECTED;
 @AllArgsConstructor
 @Builder
 @Getter
-public class Review {
+public class Review extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
