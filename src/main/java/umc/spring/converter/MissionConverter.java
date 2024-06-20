@@ -22,4 +22,11 @@ public class MissionConverter {
                 .store(store)
                 .build();
     }
+
+    public static MissionResponseDTO.UpdateMissionStatusDto updateMissionStatusDto(Mission mission) {
+        return MissionResponseDTO.UpdateMissionStatusDto.builder()
+                .missionId(mission.getId())
+                .modifiedAt(mission.getModifiedAt())
+                .build();
+    }
 }

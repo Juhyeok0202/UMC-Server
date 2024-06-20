@@ -33,6 +33,9 @@ public enum ErrorStatus implements BaseErrorCode {
     // Store관련 응답
     STORE_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE400_1", "해당 가게는 존재하지 않습니다."),
 
+    // 기타
+    PAGE_ONE_OR_MORE(HttpStatus.BAD_REQUEST, "ETC400_1", "Page값은 1 이상이어야 합니다."),
+
     // TEST용 응답
     TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP400_1", "이것은 테스트다!!"),
     ;

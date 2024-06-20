@@ -38,5 +38,4 @@ public class MemberController {
         Member member = memberCommandService.addMission(memberId, missionId);
         return ApiResponse.onSuccess(MemberConverter.toAddResultDTO(member));
     }
-
 }

@@ -15,6 +15,16 @@ public class MissionResponseDTO {
     @AllArgsConstructor
     @NoArgsConstructor
     @Getter
+    public static class UpdateMissionStatusDto {
+        private Long missionId;
+        private LocalDateTime modifiedAt;
+    }
+
+
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Getter
     public static class FindMissionsDto{
         private List<MissionsMeta> missions;
 
